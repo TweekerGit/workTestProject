@@ -26,16 +26,16 @@ class _HomePageState extends State<HomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-          child: ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(_backgroundColor),
-                  alignment: Alignment.center,
-                  minimumSize: MaterialStateProperty.all(Size.infinite)),
-              onPressed: _changeColor,
-              child: const Text(
-                'Hey there! :)',
-                style: TextStyle(fontSize: 32, color: Colors.black),
-              )),
-        ));
+            child: AnimatedContainer(
+                alignment: Alignment.center,
+                color: _backgroundColor,
+                duration: const Duration(seconds: 1),
+                child: InkWell(
+                  onTap: _changeColor,
+                  child: const Text(
+                    'Hey there! :)',
+                    style: TextStyle(fontSize: 32),
+                  ),
+                ))));
   }
 }
