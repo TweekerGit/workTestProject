@@ -25,17 +25,18 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Center(
+        body: TextButton(
+            onPressed: _changeColor,
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+              alignment: Alignment.center,
+            ),
             child: AnimatedContainer(
-                alignment: Alignment.center,
-                color: _backgroundColor,
-                duration: const Duration(seconds: 1),
-                child: InkWell(
-                  onTap: _changeColor,
-                  child: const Text(
-                    'Hey there! :)',
-                    style: TextStyle(fontSize: 32),
-                  ),
-                ))));
+              alignment: Alignment.center,
+              color: _backgroundColor,
+              duration: const Duration(seconds: 1),
+              child:
+                  const Text('Hey There! :)', style: TextStyle(fontSize: 32)),
+            )));
   }
 }
